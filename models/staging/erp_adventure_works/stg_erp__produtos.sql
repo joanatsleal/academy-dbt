@@ -6,7 +6,7 @@ source_produtos as (
 
 ),
 
-renamed as (
+final as (
 
     select
         cast(productid as int) as id_produto
@@ -39,4 +39,4 @@ renamed as (
 
 )
 
-select * from renamed
+select * from final

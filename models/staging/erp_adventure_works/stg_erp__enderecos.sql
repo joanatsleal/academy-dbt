@@ -6,7 +6,7 @@ source_enderecos as (
 
 ),
 
-renamed as (
+final as (
 
     select
         cast(addressid as int) as id_endereco
@@ -23,3 +23,4 @@ renamed as (
 
 )
 
+select * from final

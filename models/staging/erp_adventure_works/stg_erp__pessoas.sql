@@ -6,7 +6,7 @@ source_pessoas as (
 
 ),
 
-renamed as (
+final as (
 
     select
         cast(businessentityid as int) as id_pessoa,
@@ -27,4 +27,4 @@ renamed as (
 
 )
 
-select * from renamed
+select * from final

@@ -6,7 +6,7 @@ source_clientes as (
 
 ),
 
-renamed as (
+final as (
 
     select
         cast(customerid as int) as id_cliente
@@ -20,4 +20,4 @@ renamed as (
 
 )
 
-select * from renamed
+select * from final

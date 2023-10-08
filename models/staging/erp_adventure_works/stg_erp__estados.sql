@@ -10,9 +10,9 @@ final as (
 
     select
         cast(stateprovinceid as int) as id_estado,
-        cast(stateprovincecode as string) as codigo_estado,
+        cast(stateprovincecode as string) as cod_estado,
         cast(name as string) as nome_estado,
-        cast(countryregioncode as string) as codigo_pais
+        cast(countryregioncode as string) as cod_pais
         -- isonlystateprovinceflag,
         -- territoryid,
         -- rowguid,
