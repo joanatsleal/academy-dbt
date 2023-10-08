@@ -98,69 +98,71 @@ sources:
           - name: cardtype
             description: Tipo de Cartão.
 
-      # - name: salesorderheader
-      #   description: Cabeçalho do pedido de venda.
-      #   columns:
-      #     - name: salesorderid
-      #       description: Chave primária para registros de cabeçalho do pedido de venda.
-      #       tests:
-      #         - unique
-      #         - not_null
-      #     - name: orderdate
-      #       description: 
-      #     - name: duedate
-      #       description: 
-      #     - name: status
-      #       description: 
-      #     - name: creditcardid
-      #       description: 
+      - name: salesorderheadersalesreason
+        description: Cabeçalho do motivo de venda.
+        columns:
+          - name: salesorderid
+            description: Chave primária para registros cabeçalho do motivo de venda.
+            tests:
+              - unique
+              - not_null
+          - name: salesreasonid
+            description: Id do motivo da venda.
 
-      # - name: salesorderdetail
-      #   description: Detalhes dos pedidos de venda.
-      #   columns:
-      #     - name: salesorderid
-      #       description: Chave primária para o pedido de venda.
-      #       tests:
-      #         - unique
-      #         - not_null
-      #     - name: salesorderdetailid
-      #       description: Id da Venda detalhada
-      #     - name: carriertrackingnumber
-      #       description: Número de rastreamento da transportadora.
-      #     - name: orderqty
-      #       description: Quantidade do pedido.
-      #     - name: productid
-      #       description: ID do produto.
-      #     - name: specialofferid
-      #       description: ID da oferta especial.
-      #     - name: unitprice
-      #       description: Preço unitário.
-      #     - name: unitpricediscount
-      #       description: Valor do desconto.
+      - name: salesreason
+        description: Informações sobre os motivos de venda.
+        columns:
+          - name: salesreasonid
+            description: Chave primária para registros de motivos de venda.
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: Motivo da Venda
+          - name: reasontype
+            description: Tipo do motivo
 
-      # - name: salesorderheadersalesreason
-      #   description: Cabeçalho do motivo de venda.
-      #   columns:
-      #     - name: salesorderid
-      #       description: Chave primária para registros cabeçalho do motivo de venda.
-      #       tests:
-      #         - unique
-      #         - not_null
-      #     - name: salesreasonid
-      #       description: Id do motivo da venda.
+      - name: salesorderheader
+        description: Cabeçalho do pedido de venda.
+        columns:
+          - name: salesorderid
+            description: Chave primária para registros de cabeçalho do pedido de venda.
+            tests:
+              - unique
+              - not_null
+          - name: orderdate
+            description: sdds
+          - name: duedate
+            description: sdsd
+          - name: status
+            description: dsd
+          - name: creditcardid
+            description: dsdsd
 
-      # - name: salesreason
-      #   description: Informações sobre os motivos de venda.
-      #   columns:
-      #     - name: salesreasonid
-      #       description: Chave primária para registros de motivos de venda.
-      #       tests:
-      #         - unique
-      #         - not_null
-      #     - name: name
-      #       description: Motivo da Venda
-      #     - name: reasontype
-      #       description: Tipo do motivo
+      - name: salesorderdetail
+        description: Detalhes dos pedidos de venda.
+        columns:
+          - name: salesorderid
+            description: Chave primária para o pedido de venda.
+            tests:
+              - unique
+              - not_null
+          - name: salesorderdetailid
+            description: Id da Venda detalhada
+          - name: carriertrackingnumber
+            description: Número de rastreamento da transportadora.
+          - name: orderqty
+            description: Quantidade do pedido.
+          - name: productid
+            description: ID do produto.
+          - name: specialofferid
+            description: ID da oferta especial.
+          - name: unitprice
+            description: Preço unitário.
+          - name: unitpricediscount
+            description: Valor do desconto.
+
+
 
 
 
