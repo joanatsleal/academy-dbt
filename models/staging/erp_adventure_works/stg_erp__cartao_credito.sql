@@ -3,8 +3,8 @@ with
 source_cartao_credito_pessoa as (
 
     select 
-        businessentityid,
-        creditcardid,
+        businessentityid as id_pessoa,
+        creditcardid as id_cartao_credito
         -- modifieddate
     from {{ source('erp', 'personcreditcard') }}
 
@@ -13,8 +13,8 @@ source_cartao_credito_pessoa as (
 source_cartao_credito as (
 
     select 
-        creditcardid,
-        cardtype,
+        creditcardid as id_cartao_credito,
+        cardtype as tipo_cartao_credito
         -- cardnumber,
         -- expmonth,
         -- expyear,
@@ -26,11 +26,11 @@ source_cartao_credito as (
 final as (
 
     select
-        a.businessentityid,
-        a.creditcardid,
-        b.cardtype
+        a.id_pessoa,
+        a.id_cartao_credito,
+        b.tipo_cartao_credito
     from source_cartao_credito_pessoa a
-    left join source_cartao_credito b ON a.creditcardid = b.creditcardid
+    left join source_cartao_credito b ON a.id_cartao_credito = b.id_cartao_credito
 
 
 )

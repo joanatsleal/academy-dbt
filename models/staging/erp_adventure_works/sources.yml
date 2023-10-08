@@ -162,31 +162,26 @@ sources:
           - name: unitpricediscount
             description: Valor do desconto.
 
+      - name: specialofferproduct
+        description: Informações sobre os produtos.
+        columns:
+          - name: SpecialOfferID
+            description: Chave primária para registros de produtos em ofertas especiais.
+            tests:
+              - unique
+              - not_null
+          - name: productid
+            description: Id do produto
 
-
-
-
-
-      # - name: specialofferproduct
-      #   description: Informações sobre os produtos.
-      #   columns:
-      #     - name: SpecialOfferID
-      #       description: Chave primária para registros de produtos em ofertas especiais.
-      #       tests:
-      #         - unique
-      #         - not_null
-      #     - name: productid
-      #       description: Id do produto
-
-      # - name: specialoffer
-      #   description: Informações sobre ofertas especiais.
-      #   columns:
-      #     - name: SpecialOfferID
-      #       description: Chave primária para registros de ofertas especiais.
-      #       tests:
-      #         - unique
-      #         - not_null
-      #     - name: type
-      #       description: Tipo de oferta
+      - name: specialoffer
+        description: Informações sobre ofertas especiais.
+        columns:
+          - name: SpecialOfferID
+            description: Chave primária para registros de ofertas especiais.
+            tests:
+              - unique
+              - not_null
+          - name: type
+            description: Tipo de oferta
 
 
