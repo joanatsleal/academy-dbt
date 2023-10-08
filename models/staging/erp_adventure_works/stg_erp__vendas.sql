@@ -16,7 +16,7 @@ source_salesorderheader as (
         -- salespersonid,
         -- territoryid,
         -- billtoaddressid,
-        -- shiptoaddressid,
+        shiptoaddressid as id_endereco,
         -- shipmethodid,
         creditcardid as id_cartao_credito
         -- creditcardapprovalcode,
@@ -58,6 +58,7 @@ final as (
         a.dt_envio,
         a.status,
         a.id_cliente,
+        a.id_endereco,
         a.id_cartao_credito,
         b.id_ordem_venda_detalhada,
         b.qt_vendida,

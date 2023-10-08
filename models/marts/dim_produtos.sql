@@ -18,7 +18,8 @@ with
     ),
 
     final as (
-        select 
+        select
+            row_number() over (order by a.id_produto) as sk_produto,
             a.id_produto,
             a.nome_produto,
             b.id_oferta_especial,

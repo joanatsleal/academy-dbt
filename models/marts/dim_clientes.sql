@@ -28,6 +28,7 @@ with
 
     final as (
         select 
+            row_number() over (order by a.id_cliente) as sk_cliente,
             a.id_cliente,
             a.id_pessoa,
             b.primeiro_nome,
