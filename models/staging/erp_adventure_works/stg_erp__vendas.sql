@@ -41,19 +41,19 @@ source_salesorderdetail as (
         orderqty as qt_vendida,
         productid as id_produto,
         specialofferid as id_desconto,
-        unitprice as preco_unitario
-        -- unitpricediscount,
+        unitprice as preco_unitario,
+        unitpricediscount as desconto
         -- rowguid,
         -- modifieddate
     from {{ source('erp', 'salesorderdetail') }}
 
 ),
 
-final as (
+transformacoes as (
     
     select 
         a.id_ordem_venda,
-        a.dt_venda,
+        DATE(a.dt_venda) as dt_venda,
         a.dt_prazo_entrega,
         a.dt_envio,
         a.status,
@@ -64,10 +64,33 @@ final as (
         b.qt_vendida,
         b.id_produto,
         b.id_desconto,
-        b.preco_unitario
+        b.preco_unitario,
+        b.desconto
 from source_salesorderheader a
 left join source_salesorderdetail b on b.id_ordem_venda = a.id_ordem_venda
 
+),
+
+final as (
+    
+select 
+id_ordem_venda,
+dt_venda,
+date_trunc(dt_venda, month) as dt_venda_mes,
+date_trunc(dt_venda, year) as dt_venda_ano,
+dt_prazo_entrega,
+dt_envio,
+status,
+id_cliente,
+id_endereco,
+id_cartao_credito,
+id_ordem_venda_detalhada,
+qt_vendida,
+id_produto,
+id_desconto,
+preco_unitario,
+desconto
+from transformacoes
 )
 
 select * from final

@@ -53,6 +53,8 @@ with
         select 
             id_ordem_venda,
             dt_venda,
+            dt_venda_mes,
+            dt_venda_ano,
             dt_prazo_entrega,
             dt_envio,
             status,
@@ -63,7 +65,8 @@ with
             qt_vendida,
             id_produto,
             id_desconto,
-            preco_unitario
+            preco_unitario,
+            desconto
         from {{ref('stg_erp__vendas')}}
 
     ),
@@ -76,15 +79,24 @@ with
             dim_enderecos.fk_enderecos,
             dim_motivos_vendas.fk_motivo_venda,
             stg_vendas.dt_venda,
+            stg_vendas.dt_venda_mes,
+            stg_vendas.dt_venda_ano,
             stg_vendas.dt_prazo_entrega,
             stg_vendas.dt_envio,
             stg_vendas.status,
             stg_vendas.qt_vendida,
-            stg_vendas.preco_unitario
+            stg_vendas.preco_unitario,
+            stg_vendas.desconto,
+            (preco_unitario * qt_vendida) as vl_total_negociado,
+            (preco_unitario * qt_vendida) * (1 - desconto) as vl_total_liquido,
+            ((preco_unitario - desconto)/qt_vendida) as vl_ticket
         from stg_vendas stg_vendas
         left join dim_motivos_vendas dim_motivos_vendas on stg_vendas.id_ordem_venda = dim_motivos_vendas.id_ordem_venda
         left join dim_clientes dim_clientes on stg_vendas.id_cliente = dim_clientes.id_cliente
         left join dim_produtos dim_produtos on stg_vendas.id_produto = dim_produtos.id_produto
         left join dim_enderecos dim_enderecos on stg_vendas.id_endereco = dim_enderecos.id_endereco    
     )
-select * from final
+
+    select *
+    from final
+

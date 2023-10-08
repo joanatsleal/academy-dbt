@@ -30,6 +30,7 @@ with
         select
             row_number() over(order by a.id_endereco) as sk_endereco,
             a.id_endereco,
+            a.cidade,
             a.id_estado,
             b.cod_estado,
             b.nome_estado,
