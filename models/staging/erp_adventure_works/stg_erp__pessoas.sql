@@ -13,9 +13,9 @@ renamed as (
         -- persontype,
         -- namestyle,
         -- title,
-        cast(firstname as ,
-        middlename,
-        lastname,
+        cast(firstname as string) as primeiro_nome,
+        cast(middlename as string) as sobrenome,
+        cast(lastname as string) as ultimo_nome
         -- suffix,
         -- emailpromotion,
         -- additionalcontactinfo,

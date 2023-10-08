@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: erp_adventure_works
+  - name: erp
     schema: sap_adw
     description: Fonte de dados do ERP da Adventure Works.
     tables:
@@ -22,3 +22,16 @@ sources:
             tests:
               - unique
               - not_null
+
+      - name: address
+        description: Informações sobre os endereços.
+        columns:
+          - name: addressID
+            description: Chave primária para registros de endereço.
+            tests:
+              - unique
+              - not_null
+          - name: city
+            description: Nome da Cidade        
+          - name: stateprovinceid
+            description: ID do estado
