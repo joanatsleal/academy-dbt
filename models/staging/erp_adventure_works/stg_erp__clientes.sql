@@ -2,7 +2,7 @@ with
 
 source_clientes as (
 
-    select * from {{ source('erp_adventure_works', 'customer') }}
+    select * from {{ source('erp', 'customer') }}
 
 ),
 

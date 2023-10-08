@@ -1,8 +1,8 @@
 with 
 
-source as (
+source_pessoas as (
 
-    select * from {{ source('erp_adventure_works', 'person') }}
+    select * from {{ source('erp', 'person') }}
 
 ),
 
@@ -23,7 +23,7 @@ renamed as (
         -- rowguid,
         -- modifieddate
 
-    from source
+    from source_pessoas
 
 )
 
