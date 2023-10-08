@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: erp_adventure_works
+    schema: sap_adw
+    description: Fonte de dados do ERP da Adventure Works.
+    tables:
+      - name: customer
+        description: Informações atuais do cliente.
+        columns:
+          - name: customerid
+            description: Chave primária da tabela de clientes.
+            tests:
+              - unique
+              - not_null
+
+      - name: person
+        description: Informações de dados pessoais.
+        columns:
+          - name: BusinessEntityID
+            description: Chave primária para registros de pessoas,
+            tests:
+              - unique
+              - not_null
+
+          - name: person
+            description: Note that the status can change over time

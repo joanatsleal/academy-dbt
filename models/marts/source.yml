@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: dim_clientes
+    description: Dimensão de Clientes da Adventure Works.
+    columns:
+      - name: id_cliente
+        description: Chave primária da tabela de clientes.
+        tests:
+          - unique
+          - not_null
+
+      - name: id_pessoa
+        description: Chave estrangeira para Person.BusinessEntityID
