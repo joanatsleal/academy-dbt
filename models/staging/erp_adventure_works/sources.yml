@@ -22,6 +22,3 @@ sources:
             tests:
               - unique
               - not_null
-
-          - name: person
-            description: Note that the status can change over time
