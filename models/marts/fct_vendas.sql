@@ -87,9 +87,9 @@ with
             stg_vendas.qt_vendida,
             stg_vendas.preco_unitario,
             stg_vendas.desconto,
-            (preco_unitario * qt_vendida) as vl_total_negociado,
-            (preco_unitario * qt_vendida) * (1 - desconto) as vl_total_liquido,
-            ((preco_unitario - desconto)/qt_vendida) as vl_ticket
+            cast((preco_unitario * qt_vendida) as int) as vl_total_negociado,
+            cast((preco_unitario * qt_vendida) * (1 - desconto) as int) as vl_total_liquido,
+            cast(((preco_unitario - desconto)/qt_vendida) as int) as vl_ticket
         from stg_vendas stg_vendas
         left join dim_motivos_vendas dim_motivos_vendas on stg_vendas.id_ordem_venda = dim_motivos_vendas.id_ordem_venda
         left join dim_clientes dim_clientes on stg_vendas.id_cliente = dim_clientes.id_cliente

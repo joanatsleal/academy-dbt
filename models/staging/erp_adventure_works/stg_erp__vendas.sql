@@ -56,7 +56,14 @@ transformacoes as (
         DATE(a.dt_venda) as dt_venda,
         a.dt_prazo_entrega,
         a.dt_envio,
-        a.status,
+        case
+            WHEN a.status = 1 then 'Em Andamento'
+            WHEN a.status = 2 then 'Aprovado'
+            WHEN a.status = 3 then 'Backordered'
+            WHEN a.status = 4 then 'Rejeitado'
+            WHEN a.status = 5 then 'Entregue'
+            WHEN a.status = 6 then 'Cancelado'
+        end status,
         a.id_cliente,
         a.id_endereco,
         a.id_cartao_credito,
